@@ -1,0 +1,15 @@
+b4df369f6b4d59914fbb4179c0c6be1f *DESCRIPTION
+0f40135a899e73a31e4f81815e5b4924 *NAMESPACE
+63f057d5ff828405872d8d58e2f83256 *NEWS
+67631e46aba5c82cedd4dfde2d6e1021 *R/assert-has-terms.R
+af7e7fac19e77efed8ac48f34be15c17 *R/assert-is-empty-model.R
+022adf026e98bed92ea63092a18baff8 *R/has-terms.R
+66c48fc516f1911971d1e3d05de0c1a2 *R/imports.R
+ab018c407056179c8d2eb820128a1f80 *R/is-empty-model.R
+ae7cc96e41f379b5a573b013a5516533 *README.md
+3fc5ae2606e3b38f9c45ddd371616807 *man/has_terms.Rd
+d0193648a228122b0d15bdf24299fee2 *man/is_empty_model.Rd
+95e9e9e10cc020f8cc36c12453dfe550 *po/R-assertive.models.pot
+3b48950ca23548cdd6e11e20b5b1ccbf *tests/testthat.R
+03a8d6b51f557be8ed73e9ddc33f9f07 *tests/testthat/test-has-terms.R
+bb6a8a4993e35237262df367fbbdc952 *tests/testthat/test-is-empty-model.R
