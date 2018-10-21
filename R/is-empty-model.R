@@ -14,9 +14,16 @@
 #' \code{FALSE}.
 #' @seealso \code{\link[stats]{is.empty.model}} and \code{is_empty}.
 #' @examples
-#' assert_is_empty_model(lm(uptake ~ 0, CO2))
-#' assert_is_non_empty_model(lm(uptake ~ conc, CO2))
-#' assert_is_non_empty_model(lm(uptake ~ 1, CO2))
+#' # empty models have no intercept and no factors
+#' an_empty_model <- lm(uptake ~ 0, CO2)
+#' is_empty_model(an_empty_model)
+#' 
+#' a_model_with_an_intercept <- lm(uptake ~ 1, CO2)
+#' a_model_with_factors <- lm(uptake ~ conc * Type, CO2)
+#' is_non_empty_model(a_model_with_an_intercept)
+#' is_non_empty_model(a_model_with_factors)
+#' 
+#' assertive.base::dont_stop(assert_is_empty_model(a_model_with_factors))
 #' @importFrom stats terms
 #' @export
 is_empty_model <- function(x, .xname = get_name_in_parent(x))
@@ -31,9 +38,20 @@ is_empty_model <- function(x, .xname = get_name_in_parent(x))
     )
   }
   tt <- terms(x)
-  if(length(attr(tt, "factors")) != 0L) 
+  factors <- attr(tt, "factors")
+  if(length(factors) != 0L) 
   {
-    return(false(gettext("%s has factors."), .xname))
+    return(
+      false(
+        ngettext(
+          length(factors),
+          "%s has factor %s.",
+          "%s has factors %s."
+        ), 
+        .xname, 
+        toString(colnames(factors))
+      )
+    )
   }
   if(attr(tt, "intercept") != 0L) 
   {

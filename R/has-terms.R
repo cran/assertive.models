@@ -11,7 +11,9 @@
 #' nothing but throws an error if \code{has_terms} is not \code{TRUE}.
 #' @seealso \code{\link[stats]{terms}}.
 #' @examples
-#' assert_has_terms(lm(uptake ~ conc, CO2))
+#' model <- lm(uptake ~ conc, datasets::CO2)
+#' # this works because model$terms is not null
+#' assert_has_terms(model)
 #' @export
 has_terms <- function(x, .xname = get_name_in_parent(x))
 {
